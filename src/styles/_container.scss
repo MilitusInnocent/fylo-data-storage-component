@@ -1,0 +1,161 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    height: min-content; 
+    width: 80vw;
+    margin: 200px 150px;
+
+    .cta {
+        background-color: $dark-blue;
+        flex: 0 0 35%;
+        padding: 45px 20px;
+        border-radius: 5px 100px 5px 5px;
+        max-width: 300px;
+
+        &__btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 150px;
+
+            &__container {
+                background-color: $very-dark-blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 35px; width: 35px;
+                border-radius: 5px;
+                margin-top: 40px;
+                cursor: pointer;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    background-color: $pale-blue;
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+        }
+
+        @media screen and( max-width: 767px) {
+            padding: 35px 20px;
+
+            .btn__container {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .storage {
+        background-color: $dark-blue;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        height: min-content;
+        margin-top: auto;
+        flex: 0 0 60%;
+        padding: 50px 30px;
+        border-radius: 5px;
+        max-width: 800px;
+
+        &__notification {
+            position: absolute;
+            top: 0; right: 30px;
+            background-color: #fff;
+            color: $grayish-blue;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            font-size: .75em;
+            padding: 10px 20px;
+            z-index: 2;
+            border-radius: 5px;
+            transform: translateY(-25px);
+            width: 150px; height: min-content;
+
+            span {
+                font-size: 2rem;
+                color: black;
+                margin-right: 8px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0; height: 0;
+                border-top: 20px solid white;
+                border-left: 25px solid transparent;
+                top: 90%; right: 0;
+            }
+        }
+
+        &__statement {
+            span { 
+                font-weight: 700; 
+            }
+        }
+
+        &__graph {
+            width: 100%;
+
+            .progress__bar {
+                display: flex;
+                align-items: center;
+                height: 17px; 
+                background-color: hsla(229, 57%, 11%, 0.3);
+                border-radius: 10px;
+                margin: 10px auto 5px;
+
+                .total__progress{
+                    display: flex;
+                    position: relative;
+                    left: 3px;
+                    width: 81.5%; height: 12.5px;
+                    border-radius: 10px;
+                    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        height: 10px; width: 10px;
+                        background-color: #fff;
+                        top: 1px; bottom: 0; 
+                        right: 0; left: 97.6%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .capacity {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    @media screen and( max-width: 767px) {
+        flex-direction: column;
+        margin: 11vw;
+
+        .storage {
+            margin-top: 40px;
+            
+            &__notification {
+                top: 100%; right: 75px;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: $very-dark-blue;
+
+    .background {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+
+        &--mobile {
+            display: none;
+            width: 100vw;
+        }
+
+        &--desktop {
+            height: 50vh; width: 100vw;
+            img {
+                max-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            &--desktop {
+                display: none;
+            }
+
+            &--mobile {
+                display: block;
+            }
+        }
+    }
+}
